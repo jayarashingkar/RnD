@@ -9,8 +9,6 @@ namespace RNDSystems.Web.Controllers
 {
     public class ProcessingMaterialController : BaseController
     {
-
-
         /// <summary>
         /// Get Processing Material
         /// </summary>
@@ -90,7 +88,7 @@ namespace RNDSystems.Web.Controllers
             {
                 var client = GetHttpClient();
 
-                //start here
+               
                 if (workStudyId == null)
                 {
                     var task = client.GetAsync(Api + "api/Processing?recID=" + id).ContinueWith((res) =>
@@ -107,8 +105,7 @@ namespace RNDSystems.Web.Controllers
                         }
                     });
                     task.Wait();                   
-                }
-                //ends here
+                }                
                 else
                 {                   
                     var task = client.GetAsync(Api + "api/Processing?recID=" + id + "&workStudyID=" + workStudyId).ContinueWith((res) =>
