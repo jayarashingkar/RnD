@@ -48,9 +48,12 @@ namespace RNDSystems.Models
         public string SHSoakMns { get; set; }        
 
         public string SHTStartHrs { get; set; }
+        //  public List<SelectListItem> SHTStartHours { get; set; }
         public List<SelectListItem> ddSHTStartHrs { get; set; }
 
+        //[StringLength(DataLengthConstant.LENGTH_KEY)]
         public string SHTStartMns { get; set; }
+        // public List<SelectListItem> SHTStartMinutes { get; set; }
         public List<SelectListItem> ddSHTStartMin { get; set; }
 
         public string SHTDate { get; set; }
@@ -66,6 +69,7 @@ namespace RNDSystems.Models
         public string NatAgingMns { get; set; }
 
         public string ArtStartHrs { get; set; }
+       // public List<SelectListItem> ArtStartHours { get; set; }
         public List<SelectListItem> ddArtStartHrs { get; set; }
         public string ArtStartMns { get; set; }
         //public List<SelectListItem> ArtStartMinutes { get; set; }
