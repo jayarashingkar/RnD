@@ -4,7 +4,7 @@
 }
 
 <div class="panel-heading">Import Data</div>
-<div class="panel_b">
+<div class="panel_b" style="min-height:500px">
     <div id="searchDiv" class="container">
 
         <div class="row">
@@ -12,14 +12,14 @@
                 <button id="btnBack" onclick="window.history.back();" class="btn btn-primary btn-large"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
             </div>
         </div>
-        
-        <div class="row">            
+
+        <div class="row">
 
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="lblddTestTypes" class="cols-sm-2 control-label">Test Type</label>
                     <div class="cols-sm-10">
-                        @Html.DropDownList("ddTestTypes", ViewBag.ddTestTypes as IEnumerable<SelectListItem>, new { @class = "show-tick" })
+                        @Html.DropDownList("ddTestTypes", ViewBag.ddTestTypes as IEnumerable<SelectListItem>, new { @class = "show-tick", data_size = "6" })
                     </div>
                 </div>
             </div>
@@ -27,14 +27,14 @@
                 <button id="btnImport" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>Import</button>
             </div>
         </div>
-        <div class="row">            
+        <div class="row">
             <div class="col-md-8">
                 <h4>
                     <label id="lblImported" class="cols-sm-2 control-label bg-primary"></label>
-                </h4>                  
+                </h4>
             </div>
         </div>
-        
+
         <div class="row">
 
             <div class="col-md-3">
@@ -53,21 +53,21 @@
                         @Html.DropDownList("ddTestNos", ViewBag.ddWorkStudyId as IEnumerable<SelectListItem>, new { @class = "show-tick" })
                     </div>
                 </div>
-            </div>   
-            
+            </div>
+
             <div class="col-md-3">
                 <button id="btnOpenTest" class="btn btn-success disabled"><i class="fa fa-plus" aria-hidden="true"></i>Open Test</button>
             </div>
-                     
+
         </div>
     </div>
-  @*  @{Html.RenderPartial("_Repeater", "ImportDataRepeater");}*@
+    @*  @{Html.RenderPartial("_Repeater", "ImportDataRepeater");}*@
 </div>
 @section scripts{
     @Scripts.Render("~/bundles/ImportData")
     @*<script>
-        $(document).ready(function () {
-            LoadGrid("ImportDataRepeater");
-        });
-    </script>*@
+            $(document).ready(function () {
+                LoadGrid("ImportDataRepeater");
+            });
+        </script>*@
 }

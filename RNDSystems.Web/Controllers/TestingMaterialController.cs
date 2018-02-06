@@ -11,7 +11,7 @@ namespace RNDSystems.Web.Controllers
 {
     public class TestingMaterialController : BaseController
     {
-        
+
         public ActionResult TestingMaterialList(int RecID, string workStudyID)
         {
             _logger.Debug("TestingMaterialList");
@@ -19,15 +19,15 @@ namespace RNDSystems.Web.Controllers
             List<SelectListItem> ddlTestType = null;
             List<SelectListItem> ddlLotID = null;
 
-          //  List<SelectListItem> ddlSubTestType = null;
-          //  List<SelectListItem> ddAvailableTestType = null;
+            //  List<SelectListItem> ddlSubTestType = null;
+            //  List<SelectListItem> ddAvailableTestType = null;
 
             //List<SelectListItem> TestLabs = null;
             //List<SelectListItem> Orientations = null;
             //List<SelectListItem> Location1s = null;  
 
             RNDTesting testing = null;
-            try 
+            try
             {
                 ddlTestType = new List<SelectListItem>();
                 var client = GetHttpClient();
@@ -41,10 +41,10 @@ namespace RNDSystems.Web.Controllers
                             //in workStudyController 
 
                             ddlTestType = rndTesting.ddTestType;
-                           ddlLotID = rndTesting.ddLotID;
+                            ddlLotID = rndTesting.ddLotID;
 
 
-                           // ddlSubTestType = rndTesting.ddSubTestType;
+                            // ddlSubTestType = rndTesting.ddSubTestType;
                             //  ddAvailableTestType = rndTesting.ddAvailableTestType;
                             // TestLabs = rndTesting.TestLabs;
                             // Orientations = rndTesting.Orientations;
@@ -67,7 +67,7 @@ namespace RNDSystems.Web.Controllers
                 //ViewBag.ddlSubTestType = ddlSubTestType;
                 //  ViewBag.ddAvailableTestType = ddAvailableTestType;
                 // ViewBag.ddTestLabs = TestLabs;
-                
+
                 //ViewBag.ddLocation1s = Location1s;
             }
             catch (Exception ex)
@@ -141,7 +141,7 @@ namespace RNDSystems.Web.Controllers
             RNDTesting testing = null;
 
             //chnage this ddlTestType to ddlAvailableTestType
-         //   List<SelectListItem> ddlAvailableTestType = null;
+            //   List<SelectListItem> ddlAvailableTestType = null;
 
             List<SelectListItem> ddlLotID = null;
             List<SelectListItem> ddlOrientation = null;
@@ -152,13 +152,13 @@ namespace RNDSystems.Web.Controllers
             List<SelectListItem> ddlPieceNo = null;
             List<SelectListItem> ddlLocation2 = null;
             List<SelectListItem> ddlSubTestType = null;
-              
+
             int intRowId;
             int intCount = 25;
 
-            string[] strOrient = {" ","L","LT","L-T","L-S","T-L","T-S","S-L","S-T","Custom" };
-            string[] strLocOne = { " ","Front", "Middle", "Back", "Low Con" };
-            string[] strTesLab = { "Canton", "Anaheim","WMTR", "ATS"};
+            string[] strOrient = { " ", "L", "LT", "L-T", "L-S", "T-L", "T-S", "S-L", "S-T", "Custom" };
+            string[] strLocOne = { " ", "Front", "Middle", "Back", "Low Con" };
+            string[] strTesLab = { "Canton", "Anaheim", "WMTR", "ATS" };
 
             //List<SelectListItem> ddlSubTestType = null;
             List<SelectListItem> ddlAvailableTestType = null;
@@ -167,7 +167,7 @@ namespace RNDSystems.Web.Controllers
             try
             {
                 var client = GetHttpClient();
-                if (workStudyId==null)
+                if (workStudyId == null)
                 {
                     //edit
                     var task = client.GetAsync(Api + "api/Testing?recID=" + id).ContinueWith((res) =>
@@ -188,7 +188,7 @@ namespace RNDSystems.Web.Controllers
                                 ddlLocation2 = testing.ddLocation2;
                                 ddlHole = testing.ddHole;
                                 ddlPieceNo = testing.ddPieceNo;
-                                
+
                                 //ddlSubTestType = testing.ddSubTestType;
                                 //ddlAvailableTestType = testing.ddAvailableTestType;
                                 //ddlMaterialTestType = testing.ddMaterialTestType;    
@@ -211,7 +211,7 @@ namespace RNDSystems.Web.Controllers
                                     testing.WorkStudyID = workStudyId;
 
                                 }
-                               // ddlAvailableTestType = testing.ddTestType;
+                                // ddlAvailableTestType = testing.ddTestType;
                                 ddlLotID = testing.ddLotID;
                                 //ddlSubTestType = testing.ddSubTestType;
                                 //ddlAvailableTestType = testing.ddAvailableTestType;
@@ -235,14 +235,14 @@ namespace RNDSystems.Web.Controllers
                     ddlLocation2 = new List<SelectListItem>();
                     ddlSubTestType = new List<SelectListItem>();
                 }
-              
+
 
                 intRowId = 0;
                 string strValue = string.Empty;
                 while (intRowId < strOrient.Length)
                 {
                     strValue = strOrient[intRowId];
-                    if (testing!=null)
+                    if (testing != null)
                     {
                         string testingOrientation = Convert.ToString(testing.Orientation);
                         if (testingOrientation != null)
@@ -254,7 +254,7 @@ namespace RNDSystems.Web.Controllers
                             Text = strValue,
                             Selected = (testingOrientation == Convert.ToString(strValue)) ? true : false,
                         });
-                    }                   
+                    }
 
                     intRowId += 1;
                 }
@@ -305,7 +305,7 @@ namespace RNDSystems.Web.Controllers
                         Text = Convert.ToString(intRowId),
                         Selected = (testingReplica == Convert.ToString(intRowId)) ? true : false,
                     });
-                   
+
                 }
                 //ends here
 
@@ -339,7 +339,7 @@ namespace RNDSystems.Web.Controllers
                         Selected = (Convert.ToString(testing.SubTestType) == Convert.ToString("Select Test Type")) ? true : false,
                     });
                 }
-              
+
 
                 //ddlAvailableTestType.Add(new SelectListItem
                 //{
@@ -352,19 +352,19 @@ namespace RNDSystems.Web.Controllers
 
                 //start here 
 
-            //    List<SelectListItem> ddlAvailableTestType = null;
+                //    List<SelectListItem> ddlAvailableTestType = null;
 
                 ddlAvailableTestType = new List<SelectListItem>();
-                
+
                 //if (avialableTT.Count != 0)
-                if ((avialableTT != null)&&(avialableTT.Count > 0))
+                if ((avialableTT != null) && (avialableTT.Count > 0))
                 {
                     //  List<string> selectedTT = SeperateValues(avialableTT[0]);                  
                     string[] selectedTT = SeperateValues(avialableTT[0]);
                     //start here
                     foreach (string s in selectedTT)
                     {
-                        if (s=="-1")
+                        if (s == "-1")
                         {
                             ddlAvailableTestType.Add(new SelectListItem
                             {
@@ -381,7 +381,7 @@ namespace RNDSystems.Web.Controllers
                                 Text = s,
                                 Selected = (Convert.ToString(testing.TestType) == Convert.ToString(s)) ? true : false,
                             });
-                        }                        
+                        }
                     }
                     //ends here                    
                 }
@@ -395,6 +395,20 @@ namespace RNDSystems.Web.Controllers
                     });
                 }
 
+                ddlOrientation.ForEach(o => {
+                    if (o.Selected)
+                    {
+                        testing.Orientation = o.Value;
+                    }
+                });
+
+                ddlLocation1.ForEach(o => {
+                    if (o.Selected)
+                    {
+                        testing.Location1 = o.Value;
+                    }
+                });
+
                 ViewBag.ddlAvailableTestType = ddlAvailableTestType;
                 ViewBag.ddlLotID = ddlLotID;
                 ViewBag.ddlOrientation = ddlOrientation;
@@ -407,15 +421,15 @@ namespace RNDSystems.Web.Controllers
                 ViewBag.ddlLocation2 = ddlLocation2;
                 ViewBag.ddlSubTestType = ddlSubTestType;
                 //ViewBag.ddlMaterialTestType = ddlMaterialTestType;
-               // testing.GageThickness = "LotID";
+                // testing.GageThickness = "LotID";
             }
             catch (Exception ex)
             {
                 _logger.Error(ex);
             }
             return View(testing);
-        }       
-        
+        }
+
         [HttpPost]
 
         public ActionResult SaveTestingMaterial(RNDTesting model)
@@ -433,7 +447,7 @@ namespace RNDSystems.Web.Controllers
                 }
             });
             task.Wait();
-            return RedirectToAction("TestingMaterialList", new { RecID = model.TestingNo, workStudyID = model.WorkStudyID });            
+            return RedirectToAction("TestingMaterialList", new { RecID = model.TestingNo, workStudyID = model.WorkStudyID });
         }
 
         //  public ActionResult TestingMaterial(string avialableTT)
@@ -467,10 +481,10 @@ namespace RNDSystems.Web.Controllers
                 else
                     isSuccess = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.Error(ex);
-            }            
+            }
 
             // return View();
             return Json(new { isSuccess = isSuccess, AvailableTestType = ddlAvailableTestType }, JsonRequestBehavior.AllowGet);
@@ -498,14 +512,14 @@ namespace RNDSystems.Web.Controllers
 
             List<TestingViewModel> lstExportTesting = new List<TestingViewModel>();
             DataSearch<TestingViewModel> objTest = null;
-                        
+
             bool isSuccess = false;
             try
             {
                 var client = GetHttpClient();
 
-               // var task = client.PostAsJsonAsync(Api + "api/Testing", SelectedTests).ContinueWith((res) =>
-               var task = client.GetAsync(Api + "api/Testing?SelectedTests=" + SelectedTests).ContinueWith((res) =>
+                // var task = client.PostAsJsonAsync(Api + "api/Testing", SelectedTests).ContinueWith((res) =>
+                var task = client.GetAsync(Api + "api/Testing?SelectedTests=" + SelectedTests).ContinueWith((res) =>
                 {
                     if (res.Result.IsSuccessStatusCode)
                     {
@@ -521,18 +535,18 @@ namespace RNDSystems.Web.Controllers
                                 // GetExcelFile<RNDTesting>(lstExportTesting, fileName);
                                 GetExcelFile<TestingViewModel>(lstExportTesting, fileName);
                                 isSuccess = true;
-                            }                                
+                            }
                         }
                     }
                 });
-                task.Wait();               
+                task.Wait();
             }
             catch (Exception ex)
             {
                 _logger.Error(ex);
             }
-             // return RedirectToAction("TestingMaterialList");
+            // return RedirectToAction("TestingMaterialList");
             return Json(new { isSuccess = isSuccess }, JsonRequestBehavior.AllowGet);
         }
-    }    
+    }
 }

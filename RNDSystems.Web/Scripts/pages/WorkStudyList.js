@@ -342,8 +342,8 @@ $('#btnClear').on('click', function () {
     $('#StudyType').selectpicker('val', "-1");
     $('#Plant').selectpicker('val', "-1");
     $('#StudyStatus').selectpicker('val', "-1")
-    $('#searchFromDate').val('');
-    $('#searchToDate').val('');
+    //$('#searchFromDate').val('');
+    //$('#searchToDate').val('');
     $('#WorkStudyRepeater').repeater('render');
     return false;
 });
@@ -354,10 +354,14 @@ $(document).ready(function () {
     $('#StudyStatus').selectpicker();
     $('#StudyType').attr('data-live-search', 'true');
     $('#StudyType').selectpicker();
+    //$('#searchStudyType').attr('data-live-search', 'true');
+    //$('#searchStudyType').selectpicker();
+
     $('#Plant').attr('data-live-search', 'true');
     $('#Plant').selectpicker();
-    $('#searchFromDate').datepicker({ autoclose: true, todayHighlight: true, todayBtn: "linked" });
-    $('#searchToDate').datepicker({ autoclose: true, todayHighlight: true, todayBtn: "linked" });
+  
+    //$('#searchFromDate').datepicker({ autoclose: true, todayHighlight: true, todayBtn: "linked" });
+    //$('#searchToDate').datepicker({ autoclose: true, todayHighlight: true, todayBtn: "linked" });
     $('#btnAdd').on('click', function () {
         console.log('cliked');
         location.href = '/WorkStudy/SaveWorkStudy/0'

@@ -6,32 +6,31 @@
 
     //if ($('#RecId').val() !== '0') {
     var TestingNo = $('#TestingNo').val;
+      
+    debugger;
 
+    $('#WorkStudyID').prop("readonly", true);
+
+    $('#Replica').attr('data-live-search', 'true');
 
   
     if ($('#TestingNo').val() !== '0') {
-        //Edit
-        $('#WorkStudyID').prop("readonly", true);
-        $("#Replica").val('1');
-
-        //var orientation = $('#Orientation1').val;
-        //$("#Orientation").val(orientation);
+        //Edit       
+        // $("#Replica").val('1');
 
     }
     else {
+        $("#TestLab").val('Canton');
         $('#Replica').selectpicker();
     }
-
-    $('#Replica').attr('data-live-search', 'true');
-   
-    $('#LotID').attr({ 'data-live-search': 'true', 'data-width': '90%' }).selectpicker();
-
+       
     $('#Orientation').attr('data-live-search', 'true');
     $('#Orientation').selectpicker();
+ 
+    $('#LotID').attr({ 'data-live-search': 'true', 'data-width': '90%' }).selectpicker();
 
     $('#Location1').attr('data-live-search', 'true');
     $('#Location1').selectpicker();
-
 
     $('#ddTestLab').attr('data-live-search', 'true');
     $('#ddTestLab').selectpicker();
@@ -95,6 +94,7 @@
                             callback: function (value, validator, $field) {
                                 /* Get the selected options */
                                 //var options = validator.getFieldElements('ddlLotID').val();
+                              
                                 var options = validator.getFieldElements('Orientation').val();
                                 // return (options !== '-1');
                                 return ((options !== 'Select LotID') && (options !== '-1') && (options !== ' ') && (options !== ''));
@@ -128,7 +128,7 @@
     });
     //start here
 
-    $("#TestLab").val('Canton');
+
 
     $('#ddTestLab').change(function () {
         var TestLab = ($(this).find("option:selected").val()).trim();

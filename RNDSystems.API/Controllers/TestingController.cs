@@ -716,7 +716,13 @@ namespace RNDSystems.API.Controllers
                 SqlParameter param24 = new SqlParameter("@Printed", TestingMaterial.Printed);
                 SqlParameter param25 = new SqlParameter("@Replica", TestingMaterial.Replica);
                 //SqlParameter param26 = new SqlParameter("@RCS", TestingMaterial.RCS);
-                int ReplicaCount = Convert.ToInt32(TestingMaterial.Replica);
+                int ReplicaCount = 1;
+                if (TestingMaterial.Replica != null)
+                {
+                    ReplicaCount = Convert.ToInt32(TestingMaterial.Replica);
+                }
+               
+               
                 SqlParameter param27 = new SqlParameter("@ReplicaCount", ReplicaCount);
                 if (TestingMaterial.TestingNo > 0)
                 {
@@ -725,7 +731,7 @@ namespace RNDSystems.API.Controllers
                     ado.ExecScalarProc("RNDTestingMaterial_Update", "RND", new object[] { param1, param2, param3,
                         param4, param5, param6, param7, param8, param9, param10, param11, param12,
                         param13, param14, param15, param16, param17,param18, param19, param20,
-                        param21, param22, param23, param24, param25, param30});
+                        param21, param22, param23, param24, param30});
                 }
                 else
                 {

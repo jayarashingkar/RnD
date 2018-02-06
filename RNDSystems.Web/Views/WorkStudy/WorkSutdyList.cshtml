@@ -30,11 +30,11 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                    @* change here - drop down list has values from table RNDStudyType - show RNDStudytype.TypeDec values here *@
-                                    @*  @Html.DropDownList("searchStatusCode", ViewBag.ddStatus as IEnumerable<SelectListItem>, new { @class = "show-tick" })*@
-                                    @Html.DropDownList("StudyType", ViewBag.ddStudyTypes as IEnumerable<SelectListItem>, new { @class = "show-tick form-control", @id = "searchStudyType" })
+                                    @* drop down list has values from table RNDStudyType - show RNDStudytype.TypeDec values here *@
+                                    @*@Html.DropDownList("StudyType", ViewBag.ddStudyTypes as IEnumerable<SelectListItem>, new { @class = "show-tick form-control", @id = "searchStudyType" })*@
+                                    @Html.DropDownList("StudyType", ViewBag.ddStudyTypes as IEnumerable<SelectListItem>, new { @class = "show-tick form-control" })
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

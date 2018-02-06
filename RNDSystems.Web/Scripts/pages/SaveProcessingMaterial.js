@@ -1,20 +1,36 @@
 ﻿/// <reference path="SaveAssignMaterial.js" />
 $(document).ready(function () {
 
+    debugger;
+
+    $('#MillLotNo').attr('data-live-search', 'true');
+
     if ($('#WorkStudyID').val() !== '0') {
         $('#WorkStudyID').prop("readonly", true);
+    }
+   
+    //Edit
+    if (($("#RecId").val() != "0")) {
+        $('#MillLotNo').attr("disable", true);
     }
     else {
         $('#MillLotNo').selectpicker();
     }
-    $('#MillLotNo').attr('data-live-search', 'true');
 
-    //Edit
-    if (($("#RecId").val() != "0")) {
+    //if ($('#WorkStudyID').val() !== '0') {
+    //    $('#WorkStudyID').prop("readonly", true);
+    //}
+    //else {
+    //    $('#MillLotNo').selectpicker();
+    //}
+    //$('#MillLotNo').attr('data-live-search', 'true');
 
-        $('#MillLotNo').attr("disable", true);
+    ////Edit
+    //if (($("#RecId").val() != "0")) {
 
-    }  
+    //    $('#MillLotNo').attr("disable", true);
+
+    //}  
 
     $("#MillLotNo").change(function () {
         var RecID = $("#RecId").val();
