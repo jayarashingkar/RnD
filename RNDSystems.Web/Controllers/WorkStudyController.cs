@@ -83,6 +83,14 @@ namespace RNDSystems.Web.Controllers
                       }
                   });
                 task.Wait();
+
+                locations.ForEach(l => {
+                    if (l.Selected)
+                    {
+                        workStudy.Plant = l.Value;
+                    }
+                });
+
                 ViewBag.ddStatus = status;
                 ViewBag.ddStudyTypes = studyTypes;
                 ViewBag.ddLocation = locations;
