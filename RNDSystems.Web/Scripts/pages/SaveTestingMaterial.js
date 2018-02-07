@@ -1,28 +1,33 @@
 ﻿$(document).ready(function () {
 
     var selectedLotID;
-    //var selectedTestType; 
     var selectedTT;
 
-    //if ($('#RecId').val() !== '0') {
     var TestingNo = $('#TestingNo').val;
-      
-    debugger;
-
+        
     $('#WorkStudyID').prop("readonly", true);
 
     $('#Replica').attr('data-live-search', 'true');
 
-  
-    if ($('#TestingNo').val() !== '0') {
-        //Edit       
-        // $("#Replica").val('1');
 
-    }
-    else {
+    if ($('#TestingNo').val() == '0') {
+        //Setting Default values while adding new Test
+        //Not application while EDIT
         $("#TestLab").val('Canton');
+
+        //disabled during EDIT
         $('#Replica').selectpicker();
     }
+
+    //if ($('#TestingNo').val() !== '0') {
+    //    //Edit       
+    //    // $("#Replica").val('1');
+
+    //}
+    //else {
+    //    $("#TestLab").val('Canton');
+    //    $('#Replica').selectpicker();
+    //}
        
     $('#Orientation').attr('data-live-search', 'true');
     $('#Orientation').selectpicker();
@@ -148,7 +153,12 @@
         var TestType = ($(this).find("option:selected").val()).trim();
         $("#TestType").val(TestType);
          
-            });
+        //if ((TestType != "") && (TestType != " ") && (TestType != null)) {
+        //    if (TestType.trim() == 'Macro Etch') {
+        //        $('#SaveTestingMaterial').bootstrapValidator('resetForm', true);
+        //    }
+        //}
+    });
 
     //  $('#AvailableTestType').change(function () {     
     $('#ddTestType').change(function () {

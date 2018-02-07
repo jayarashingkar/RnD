@@ -402,10 +402,18 @@ namespace RNDSystems.Web.Controllers
                     }
                 });
 
-                ddlLocation1.ForEach(o => {
-                    if (o.Selected)
+                ddlLocation1.ForEach(l => {
+                    if (l.Selected)
                     {
-                        testing.Location1 = o.Value;
+                        testing.Location1 = l.Value;
+                    }
+                });
+
+
+                ddlReplica.ForEach(r => {
+                    if (r.Selected)
+                    {
+                        testing.Replica = r.Value;
                     }
                 });
 

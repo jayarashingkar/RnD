@@ -543,109 +543,10 @@ namespace RNDSystems.API.Controllers
             return Serializer.ReturnContent(ds, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
 
         }
-        //public HttpResponseMessage Post(RNDTesting TestingMaterial)
-        //{
-        //    SqlDataReader reader = null;
-        //   // RNDTesting TM = null;
-        //    try
-        //    {
-        //        CurrentUser user = ApiUser;
-        //        AdoHelper ado = new AdoHelper();
-
-        //        int MillLotNo = findMillLotNo(TestingMaterial.LotID);
-
-        //        SqlParameter param31 = new SqlParameter("@MillLotNo", MillLotNo);              
-        //        using (reader = ado.ExecDataReaderProc("RNDGetAlloyPartTemper", "RND", param31))
-        //        {
-        //            if (reader.HasRows)
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    //TM.UACPart = Convert.ToDecimal(reader["UACPart"]);
-        //                    //TM.CustPart = Convert.ToString(reader["CustPart"]);
-        //                    //TM.Alloy = Convert.ToString(reader["Alloy"]);
-        //                    //TM.Temper = Convert.ToString(reader["Temper"]);
-        //                    TestingMaterial.UACPart = Convert.ToDecimal(reader["UACPart"]);
-        //                    TestingMaterial.CustPart = Convert.ToString(reader["CustPart"]);
-        //                    TestingMaterial.Alloy = Convert.ToString(reader["Alloy"]);
-        //                    TestingMaterial.Temper = Convert.ToString(reader["Temper"]);
-        //                }
-        //            }
-        //        }
-
-        //        SqlParameter param32 = new SqlParameter("@ProcessID", TestingMaterial.LotID);
-        //        using (reader = ado.ExecDataReaderProc("RNDGetSoNumByProcessID", "RND", param32))
-        //        {
-        //            if (reader.HasRows)
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    TestingMaterial.SoNum = Convert.ToString(reader["Sonum"]);
-        //                 //   TestingMaterial.RCS = Convert.ToChar(reader["RCS"]).Trim);                        
-        //                }
-        //            }
-        //        }
-        //        SqlParameter param1 = new SqlParameter("@WorkStudyID", TestingMaterial.WorkStudyID);
-        //        SqlParameter param2 = new SqlParameter("@LotID", TestingMaterial.LotID);
-        //        SqlParameter param3 = new SqlParameter("@MillLotNo", MillLotNo);
-        //        SqlParameter param4 = new SqlParameter("@SoNum", TestingMaterial.SoNum);
-        //        SqlParameter param5 = new SqlParameter("@Hole", TestingMaterial.Hole);
-        //        SqlParameter param6 = new SqlParameter("@PieceNo", TestingMaterial.PieceNo);
-        //        SqlParameter param7 = new SqlParameter("@Alloy", TestingMaterial.Alloy);
-        //        SqlParameter param8 = new SqlParameter("@Temper", TestingMaterial.Temper);
-        //        SqlParameter param9 = new SqlParameter("@CustPart", TestingMaterial.CustPart);
-        //        SqlParameter param10 = new SqlParameter("@UACPart", TestingMaterial.UACPart);
-        //        SqlParameter param11 = new SqlParameter("@GageThickness", TestingMaterial.GageThickness);
-        //        SqlParameter param12 = new SqlParameter("@Orientation", TestingMaterial.Orientation);
-        //        SqlParameter param13 = new SqlParameter("@Location1", TestingMaterial.Location1);
-        //        SqlParameter param14 = new SqlParameter("@Location2", TestingMaterial.Location2);
-        //        SqlParameter param15 = new SqlParameter("@Location3", TestingMaterial.Location3);
-        //        SqlParameter param16 = new SqlParameter("@SpeciComment", TestingMaterial.SpeciComment);                
-        //        SqlParameter param17 = new SqlParameter("@TestType", TestingMaterial.TestType);
-        //        SqlParameter param18 = new SqlParameter("@SubTestType", TestingMaterial.SubTestType);
-        //        SqlParameter param19 = new SqlParameter("@Status", TestingMaterial.Status);
-        //        SqlParameter param20 = new SqlParameter("@Selected", TestingMaterial.Selected);
-        //        SqlParameter param21 = new SqlParameter("@EntryDate", DateTime.Now);
-        //        SqlParameter param22 = new SqlParameter("@EntryBy", user.UserId);
-        //        SqlParameter param23 = new SqlParameter("@TestLab", TestingMaterial.TestLab);
-        //        SqlParameter param24 = new SqlParameter("@Printed", TestingMaterial.Printed);
-        //        SqlParameter param25 = new SqlParameter("@Replica", TestingMaterial.Replica);
-        //        //SqlParameter param26 = new SqlParameter("@RCS", TestingMaterial.RCS);
-        //        int ReplicaCount = Convert.ToInt32(TestingMaterial.Replica);
-        //        SqlParameter param27 = new SqlParameter("@ReplicaCount", ReplicaCount);
-        //        if (TestingMaterial.TestingNo > 0)
-        //        {
-        //            //SqlParameter param25 = new SqlParameter("TestingNo", TestingMaterial.TestingNo);
-        //            SqlParameter param30 = new SqlParameter("TestingNo", TestingMaterial.TestingNo);
-        //            ado.ExecScalarProc("RNDTestingMaterial_Update", "RND", new object[] { param1, param2, param3,
-        //                param4, param5, param6, param7, param8, param9, param10, param11, param12,
-        //                param13, param14, param15, param16, param17,param18, param19, param20,
-        //                param21, param22, param23, param24, param25, param30});
-        //        }
-        //        else
-        //        {
-        //            ado.ExecScalarProc("RNDTestingMaterial_Insert", "RND", new object[] { param1, param2, param3,
-        //                param4, param5, param6, param7, param8, param9, param10, param11, param12,
-        //                param13, param14, param15, param16, param17,param18, param19, param20,
-        //                param21, param22, param23, param24, param25, param27});
-        //        }
-        //    }  
-        //    catch (Exception ex)
-        //    {
-        //        _logger.Error(ex.Message);
-        //        return new HttpResponseMessage(HttpStatusCode.InternalServerError);
-        //    }
-        //    //return Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-        //   // var returnSerializerl =  Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-        //    // return Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-        //    return Serializer.ReturnContent(TestingMaterial, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-        //}
-
 
         public HttpResponseMessage Post(RNDTesting TestingMaterial)
         {
             SqlDataReader reader = null;
-           // RNDTesting TM = null;
             try
             {
                 CurrentUser user = ApiUser;
@@ -660,10 +561,6 @@ namespace RNDSystems.API.Controllers
                     {
                         if (reader.Read())
                         {
-                            //TM.UACPart = Convert.ToDecimal(reader["UACPart"]);
-                            //TM.CustPart = Convert.ToString(reader["CustPart"]);
-                            //TM.Alloy = Convert.ToString(reader["Alloy"]);
-                            //TM.Temper = Convert.ToString(reader["Temper"]);
                             TestingMaterial.UACPart = Convert.ToDecimal(reader["UACPart"]);
                             TestingMaterial.CustPart = Convert.ToString(reader["CustPart"]);
                             TestingMaterial.Alloy = Convert.ToString(reader["Alloy"]);
@@ -680,26 +577,34 @@ namespace RNDSystems.API.Controllers
                         if (reader.Read())
                         {
                             TestingMaterial.SoNum = Convert.ToString(reader["Sonum"]);
-                          //  TM.SoNum = Convert.ToString(reader["Sonum"]);
-                            //   TestingMaterial.RCS = Convert.ToChar(reader["RCS"]).Trim);                        
                         }
                     }
                 }
+
+                if (TestingMaterial.Location2 != null)
+                {
+                    if (TestingMaterial.Location2.Trim() == "-1")
+                        TestingMaterial.Location2 = "";
+                }
+                else
+                    TestingMaterial.Location2 = "";
+
+                if (TestingMaterial.GageThickness == null)
+                        TestingMaterial.GageThickness = "";
+
+                if (TestingMaterial.SpeciComment == null)
+                        TestingMaterial.SpeciComment = "";
+
                 SqlParameter param1 = new SqlParameter("@WorkStudyID", TestingMaterial.WorkStudyID);
                 SqlParameter param2 = new SqlParameter("@LotID", TestingMaterial.LotID);
                 SqlParameter param3 = new SqlParameter("@MillLotNo", MillLotNo);
                 SqlParameter param4 = new SqlParameter("@SoNum", TestingMaterial.SoNum);
-               // SqlParameter param4 = new SqlParameter("@SoNum", TM.SoNum);
                 SqlParameter param5 = new SqlParameter("@Hole", TestingMaterial.Hole);
                 SqlParameter param6 = new SqlParameter("@PieceNo", TestingMaterial.PieceNo);
                 SqlParameter param7 = new SqlParameter("@Alloy", TestingMaterial.Alloy);
                 SqlParameter param8 = new SqlParameter("@Temper", TestingMaterial.Temper);
                 SqlParameter param9 = new SqlParameter("@CustPart", TestingMaterial.CustPart);
                 SqlParameter param10 = new SqlParameter("@UACPart", TestingMaterial.UACPart);
-                //SqlParameter param7 = new SqlParameter("@Alloy", TM.Alloy);
-                //SqlParameter param8 = new SqlParameter("@Temper", TM.Temper);
-                //SqlParameter param9 = new SqlParameter("@CustPart", TM.CustPart);
-                //SqlParameter param10 = new SqlParameter("@UACPart", TM.UACPart);
                 SqlParameter param11 = new SqlParameter("@GageThickness", TestingMaterial.GageThickness);
                 SqlParameter param12 = new SqlParameter("@Orientation", TestingMaterial.Orientation);
                 SqlParameter param13 = new SqlParameter("@Location1", TestingMaterial.Location1);
@@ -716,6 +621,7 @@ namespace RNDSystems.API.Controllers
                 SqlParameter param24 = new SqlParameter("@Printed", TestingMaterial.Printed);
                 SqlParameter param25 = new SqlParameter("@Replica", TestingMaterial.Replica);
                 //SqlParameter param26 = new SqlParameter("@RCS", TestingMaterial.RCS);
+
                 int ReplicaCount = 1;
                 if (TestingMaterial.Replica != null)
                 {
@@ -726,8 +632,8 @@ namespace RNDSystems.API.Controllers
                 SqlParameter param27 = new SqlParameter("@ReplicaCount", ReplicaCount);
                 if (TestingMaterial.TestingNo > 0)
                 {
-                    //SqlParameter param25 = new SqlParameter("TestingNo", TestingMaterial.TestingNo);
                     SqlParameter param30 = new SqlParameter("TestingNo", TestingMaterial.TestingNo);
+
                     ado.ExecScalarProc("RNDTestingMaterial_Update", "RND", new object[] { param1, param2, param3,
                         param4, param5, param6, param7, param8, param9, param10, param11, param12,
                         param13, param14, param15, param16, param17,param18, param19, param20,
@@ -746,9 +652,6 @@ namespace RNDSystems.API.Controllers
                 _logger.Error(ex.Message);
                 return new HttpResponseMessage(HttpStatusCode.InternalServerError);
             }
-            //return Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-            // var returnSerializerl =  Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
-            // return Serializer.ReturnContent(HttpStatusCode.OK, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
             return Serializer.ReturnContent(TestingMaterial, this.Configuration.Services.GetContentNegotiator(), this.Configuration.Formatters, this.Request);
         }
 
@@ -775,10 +678,6 @@ namespace RNDSystems.API.Controllers
             string[] separatingChars = { "P", "-P" };
             string[] MillLotID = LotID.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
             int millLotNo = Convert.ToInt32(MillLotID[0]);
-
-            //string[] separatingChars = { "-P" };
-            //string[] MillLotID = LotID.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
-            //int millLotNo = Convert.ToInt32(MillLotID[0]);
 
             return millLotNo;
         }
