@@ -176,7 +176,7 @@ function Submit() {
     if (options.trim() == "3") {
         if ($('#CompleteDate').val() === '') {
             isValid = false;
-            alert('Complete Date is required.');            
+            bootbox.alert('Complete Date is required.');            
         }
         else 
             isValid = true;
