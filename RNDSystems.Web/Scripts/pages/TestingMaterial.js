@@ -175,11 +175,12 @@ function customColumnRenderer(helpers, callback) {
 }
 
 $('#btnSelectPrint').on('click', function () {
-  
+    debugger;
+    if (SelectedTests == null)
+        SelectedTests = "";
     $("#SelectedTests").val(SelectedTests);
 })
-$('#btnPrint').on('click', function () {
-  
+$('#btnPrint').on('click', function () {  
     SelectedTests = "";
     $("#SelectedTests").val(SelectedTests);
    // $("#SelectedTests").val(avialableTT);
@@ -440,7 +441,7 @@ $(document).ready(function () {
     }
 
     $('#btnAddTesting').on('click', function () {        
-        avialableTT = $('#ddlTestType').val();
+        avialableTT = $('#ddlTestType').val();       
         if ((avialableTT == "-1") || (avialableTT == null) || (avialableTT == ""))
         {
             isTestTypeSelected(avialableTT);         

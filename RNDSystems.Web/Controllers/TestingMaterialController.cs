@@ -507,7 +507,7 @@ namespace RNDSystems.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult PrintSelected(string SelectedTests)
+        public ActionResult PrintSelected(string SelectedTests, string WorkStudyID)
         {
             _logger.Debug("PrintSelected");
             //DataGridoption ExportDataFilter = new DataGridoption();
@@ -527,7 +527,7 @@ namespace RNDSystems.Web.Controllers
                 var client = GetHttpClient();
 
                 // var task = client.PostAsJsonAsync(Api + "api/Testing", SelectedTests).ContinueWith((res) =>
-                var task = client.GetAsync(Api + "api/Testing?SelectedTests=" + SelectedTests).ContinueWith((res) =>
+                var task = client.GetAsync(Api + "api/Testing?SelectedTests=" + SelectedTests + "&workStudyID=" + WorkStudyID).ContinueWith((res) =>
                 {
                     if (res.Result.IsSuccessStatusCode)
                     {

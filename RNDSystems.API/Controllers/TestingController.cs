@@ -490,7 +490,7 @@ namespace RNDSystems.API.Controllers
         }
 
          //   public HttpResponseMessage Post(string SelectedTests)
-        public HttpResponseMessage Get(string SelectedTests)
+        public HttpResponseMessage Get(string SelectedTests, string WorkStudyID)
         {
             AdoHelper ado = new AdoHelper();
             SqlDataReader reader = null;
@@ -502,8 +502,9 @@ namespace RNDSystems.API.Controllers
             //    SelectedTests = "ALL";
 
             SqlParameter param0 = new SqlParameter("@TestingNos", SelectedTests);
-           
-            using (reader = ado.ExecDataReaderProc("RNDPrintTesting", "RND", param0))
+            SqlParameter param1 = new SqlParameter("@WorkStudyID", @WorkStudyID);
+
+            using (reader = ado.ExecDataReaderProc("RNDPrintTesting", "RND", param0, param1))
             {
                 if (reader.HasRows)
                 {

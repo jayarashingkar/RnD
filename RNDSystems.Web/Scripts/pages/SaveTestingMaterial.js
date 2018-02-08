@@ -251,19 +251,7 @@
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
-                    if (data) {
-                        
-                       // $("#MillLotNo").val(data.MillLotNo);
-                       // $("#SoNum").val(data.SoNum);
-                       //// $("#Hole").val(data.Hole);
-                       //// $("#PieceNo").val(data.PieceNo);
-                       // $("#CustPart").val(data.CustPart);
-                       // $("#UACPart").val(data.UACPart);
-                       // $("#Alloy").val(data.Alloy);
-                       // $("#Temper").val(data.Temper);
-
-                     //   $('#GageThickness').val(data.GageThickness);
-                                              
+                    if (data) {           
                        // Hole 
                         var outputHole = data.ddHole;
                         var optionHole1 = '<option value="' +
