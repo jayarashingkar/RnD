@@ -149,7 +149,7 @@ namespace RNDSystems.Web.Controllers
                         strValue = "0" + Convert.ToString(intRowId);
                     }
                     
-                    if(intRowId <= 24)
+                    if(intRowId < 24)
                     {
                         ddSHTStartHrs.Add(new SelectListItem
                         {
