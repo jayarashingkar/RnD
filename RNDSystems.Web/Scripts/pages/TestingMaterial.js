@@ -156,12 +156,10 @@ function customColumnRenderer(helpers, callback) {
         case 'Edit':
             // let's combine name and description into a single column
             customMarkup = '<button onclick="GridEditClicked(' + rowData.TestingNo + ')" id="gridEdit" name="gridEdit" class="btn btn-info btn-sm center-block"><i class="fa fa-pencil"></i></button>';
-          //  customMarkup = '<button onclick="GridEditClicked(' + rowData.RecID + ')" id="gridEdit" name="gridEdit" class="btn btn-sm center-block"><i class="fa fa-pencil"></i></button>';
             break;
         case 'Delete':
             // let's combine name and description into a single column
             customMarkup = '<button onclick="GridDeleteClicked(' + rowData.TestingNo + ')" id="gridDelete" name="gridDelete" class="btn btn-danger btn-sm center-block"><i class="fa fa-trash"></i></button>';
-           // customMarkup = '<button onclick="GridDeleteClicked(' + rowData.RecID + ')" id="gridDelete" name="gridDelete" class="btn btn-danger btn-sm cetner-block"><i class="fa fa-trash"></i></button>';
             break;
         default:
             // otherwise, just use the existing text value
@@ -189,7 +187,6 @@ $('#btnPrint').on('click', function () {
 function customRowRenderer(helpers, callback) {
     // let's get the id and add it to the "tr" DOM element
     var item = helpers.item;
-  //  item.attr('id', 'row' + helpers.rowData.RecID);
     item.attr('id', 'row' + helpers.rowData.TestingNo);
     callback();
 }
@@ -231,7 +228,6 @@ function customDataSource(options, callback) {
     //search Sub Test Type
 
     var options = {
-        //Screen: 'TestingMaterialList',
         Screen: 'TestingMaterial',
         pageIndex: pageIndex,
         pageSize: pageSize,
@@ -372,11 +368,7 @@ $(document).ready(function () {
     $('#ddlTestType').attr('multiple', '');
     $('#ddlTestType').attr('data-actions-box', 'true');
     $('#ddlTestType').selectpicker();
-  //  $('#ddlTestType').selectpicker('selectAll');
-    
-   // $('#ddlTestType').attr('selectAll', true);
-    
-   
+     
     var avialableTT = $('#ddlTestType').val();
     //debugger;
 
@@ -449,11 +441,7 @@ $(document).ready(function () {
         else {
             location.href = '/TestingMaterial/SaveTestingMaterial?id=0&workStudyId=' + $('#WorkStudyID').val() + '&avialableTT=' + avialableTT;
         }
-        //    location.href = '/TestingMaterial/SaveTestingMaterial?id=0&workStudyId=' + $('#WorkStudyID').val();
     });
-
-   
-
 });
 
 function isTestTypeSelected(avialableTT) {
