@@ -98,6 +98,7 @@ namespace RNDSystems.API.Controllers
             bool isSuccess = true;
             string data = string.Empty;
             string TestType = selectedTestType.Message;
+            string filePath = selectedTestType.Message1;
             try
             {
                 switch (TestType)
@@ -105,60 +106,60 @@ namespace RNDSystems.API.Controllers
                     case "Tension":
                         {
                             //implemented
-                            isSuccess = ImportTensionData();
+                            isSuccess = ImportTensionData(filePath);
                             break;
                         }
                     case "Compression":
                         {
                             //implemented
-                            isSuccess = ImportCompressionData();
+                            isSuccess = ImportCompressionData(filePath);
                             break;
                         }
                     case "Bearing":
                         {
                             //implemented
-                            isSuccess = ImportBearingData();
+                            isSuccess = ImportBearingData(filePath);
                             break;
                         }
                     case "Shear":
                         {
                             //implemented
-                            isSuccess = ImportShearData();
+                            isSuccess = ImportShearData(filePath);
                             break;
                         }
                     case "Notch Yield":
                         {
                             //implemented
-                            isSuccess = ImportNotchYieldData();
+                            isSuccess = ImportNotchYieldData(filePath);
                             break;
                         }
                     case "Residual Strength":
                         {
                             //implemented
-                            isSuccess = ImportResidualStrengthData();
+                            isSuccess = ImportResidualStrengthData(filePath);
                             break;
                         }
                     case "Fracture Toughness":
                         {
                             //implemented
-                            isSuccess = ImportFractureToughnessData();
+                            isSuccess = ImportFractureToughnessData(filePath);
                             break;
                         }
                     case "Modulus Tension":
                         {
                             //implemented
-                            isSuccess = ImportModulusTensionData();
+                            isSuccess = ImportModulusTensionData(filePath);
                             break;
                         }
                     case "Modulus Compression":
                         {
                             //implemented
-                            isSuccess = ImportModulusCompressionData();
+                            isSuccess = ImportModulusCompressionData(filePath);
                             break;
                         }
                     case "Fatigue Testing":
                         {
-                            isSuccess = ImportFatigueTestingData();
+                            isSuccess = ImportFatigueTestingData(filePath);
                             break;
                         }
                     default:
@@ -176,13 +177,14 @@ namespace RNDSystems.API.Controllers
 
         public List<TensionViewModel> listTensionData { get; set; }
 
-        bool ImportTensionData()
+        bool ImportTensionData(string filePath)
         {
             try
             {
                 listTensionData = new List<TensionViewModel>();
                 //tensionData 
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Tension.csv";
+                //    string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Tension.csv";
+                //C:\New Development\RND\New Development\CSV\Tension.csv
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -264,13 +266,13 @@ namespace RNDSystems.API.Controllers
 
         public List<CompressionViewModel> listCompressionData { get; set; }
 
-        bool ImportCompressionData()
+        bool ImportCompressionData(string filePath)
         {
             try
             {
                 listCompressionData = new List<CompressionViewModel>();
                 // CompressionData 
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Compression.csv";
+               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Compression.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -343,14 +345,14 @@ namespace RNDSystems.API.Controllers
       
         public List<BearingViewModel> listBearingData { get; set; }
 
-        bool ImportBearingData()
+        bool ImportBearingData(string filePath)
         {
             try
             {
                 listBearingData = new List<BearingViewModel>();
                 // Bearing Data 
          
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Bearing.csv";
+               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Bearing.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -424,14 +426,14 @@ namespace RNDSystems.API.Controllers
     
         public List<ShearViewModel> listShearData { get; set; }
 
-        bool ImportShearData()
+        bool ImportShearData(string filePath)
         {
             try
             {
                 listShearData = new List<ShearViewModel>();
                 // Shear Data 
 
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Shear.csv";
+               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Shear.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -501,13 +503,13 @@ namespace RNDSystems.API.Controllers
 
 
         public List<NotchYieldViewModel> listNotchYieldData { get; set; }
-        bool ImportNotchYieldData()
+        bool ImportNotchYieldData(string filePath)
         {
             try
             {
                 listNotchYieldData = new List<NotchYieldViewModel>();
                 // FractureToughness
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Notch Yield.csv";
+               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Notch Yield.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -588,13 +590,13 @@ namespace RNDSystems.API.Controllers
         /// <returns></returns>
        public List<ResidualStrengthViewModel> listResidualStrengthData { get; set; }
 
-        bool ImportResidualStrengthData()
+        bool ImportResidualStrengthData(string filePath)
         {
             try
             {
                 listResidualStrengthData = new List<ResidualStrengthViewModel>();
                 // ResidualStrength
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Residual Strength.csv";
+               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Residual Strength.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -682,13 +684,13 @@ namespace RNDSystems.API.Controllers
         /// </summary>
         public List<FractureToughnessViewModel> listFractureToughnessData { get; set; }
        
-        bool ImportFractureToughnessData()
+        bool ImportFractureToughnessData(string filePath)
         {
             try
             {
                 listFractureToughnessData = new List<FractureToughnessViewModel>();
                 // FractureToughness
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fracture Toughness.csv";
+           //     string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fracture Toughness.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -785,13 +787,13 @@ namespace RNDSystems.API.Controllers
 
         public List<ModulusTensionDataViewModel> listModulusTensionData { get; set; }
 
-        bool ImportModulusTensionData()
+        bool ImportModulusTensionData(string filePath)
         {
             try
             {
                 listModulusTensionData = new List<ModulusTensionDataViewModel>();
                 // ModulusTensionData
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Modulus Tension.csv";
+           //     string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Modulus Tension.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -865,13 +867,13 @@ namespace RNDSystems.API.Controllers
 
         public List<ModulusCompressionDataViewModel> listModulusCompressionData { get; set; }
 
-        bool ImportModulusCompressionData()
+        bool ImportModulusCompressionData(string filePath)
         {
             try
             {
                 listModulusCompressionData = new List<ModulusCompressionDataViewModel>();
                 // ModulusCompressionData
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Modulus Compression.csv";
+              //  string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Modulus Compression.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
@@ -948,13 +950,13 @@ namespace RNDSystems.API.Controllers
 
         public List<FatigueTestingDataViewModel> listFatigueTestingData { get; set; }
 
-        bool ImportFatigueTestingData()
+        bool ImportFatigueTestingData(string filePath)
         {
             try
             {
                 listFatigueTestingData = new List<FatigueTestingDataViewModel>();
                 // FatigueTestingData
-                string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fatigue Testing.csv";
+             //   string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fatigue Testing.csv";
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {

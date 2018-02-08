@@ -14,7 +14,6 @@
         </div>
 
         <div class="row">
-
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="lblddTestTypes" class="cols-sm-2 control-label">Test Type</label>
@@ -22,15 +21,28 @@
                         @Html.DropDownList("ddTestTypes", ViewBag.ddTestTypes as IEnumerable<SelectListItem>, new { @class = "show-tick", data_size = "6" })
                     </div>
                 </div>
+            </div>           
+        </div>        
+        <div class="row">
+                <div class="col-md-3 ">                  
+                    <div class="form-group">                       
+                        <input type="file" id="filePath" name="filePath"  class="hidden"  placeholder="Enter File"> 
+                        <div class="button btn btn-success" id="uploadTrigger">Import</div>
+                    </div>                    
+                </div>
             </div>
-            <div class="col-md-3 ">
-                <button id="btnImport" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>Import</button>
+        <div class="row">
+            <div class="col-md-16">
+                <h4>
+                    <label id="lblFileName" class="col-md-16 control-label bg-primary"></label>
+                </h4>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-16">
                 <h4>
-                    <label id="lblImported" class="cols-sm-2 control-label bg-primary"></label>
+                    <label id="lblImported" class="col-md-16 control-label bg-primary"></label>
                 </h4>
             </div>
         </div>

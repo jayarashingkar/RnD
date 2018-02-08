@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    debugger;
     $('#ddTestTypes').attr({ 'data-live-search': 'true', 'data-width': '90%' }).selectpicker();
 
     //Currently disabled - Can be used in next version for Manual Import
@@ -9,32 +9,51 @@
     $('#ddTestNos').attr({ 'data-live-search': 'true', 'data-width': '90%' }).selectpicker();
     $('#ddTestNos').attr("disabled", "disabled");
 
- //   $("#ddTestTypes").change(function () {
-    $('#btnImport').on('click', function () {
-        var selectedTestType = $.trim($("#ddTestTypes").val());      
-     
-        var options = {          
-            Message: selectedTestType,
-        };
-       
-        $.ajax({
-            type: 'post',
-            url: Api + 'api/ImportData',
-            headers: {
-                Token: GetToken()
-            },
-            data: options
-        }) 
-            .done(function (data) {
-              
-                if (data) {
-                    $('#lblImported').text("Imported:" + selectedTestType + "data");
-                   
-                }
-                else {
-                    $('#lblImported').text("Import Error");
-                }
+    var selectedTestType =""; 
 
-            });
+    $('#ddlTestType').change(function () {
+         selectedTestType = $.trim($("#ddTestTypes").val());
     });
+    
+    $("#uploadTrigger").click(function() {
+ 
+        $("#filePath").click();
+
+        selectedTestType = $.trim($("#ddTestTypes").val());      
+     
+        var filePath = "";
+        if ($("#filePath").val()!= null){
+            filePath = $.trim($("#filePath").val()); 
+        }
+
+        $('#lblFileName').text("Importing file: " +filePath);
+        var errorMsg; 
+        if (!filePath.includes(selectedTestType)) {
+            errorMsg = "Import Error: Please check the correct file is imported";
+        }              
+
+        var options ={
+            Message: selectedTestType,
+            Message1: filePath
+            };
+
+        $.ajax({
+        type: 'post',
+        url: Api + 'api/ImportData',
+        headers: {
+            Token: GetToken()
+            },
+        data: options
+        })
+        .done(function (data) {
+            if (data) {
+                $('#lblImported').text("Imported: " + selectedTestType + "data");
+            }
+            else {
+                errorMsg = "Import Error: Please check if the file is open";
+                $('#lblImported').text(errorMsg);
+        }
+
+    });
+ });
 });
