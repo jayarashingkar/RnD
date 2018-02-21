@@ -116,13 +116,11 @@ namespace RNDSystems.API.Controllers
                     case "Compression":
                         {
                             // filePath = "/USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv";
+                            filePath = @"\USCTRD01\RDServer\RD\Database\Export\ForNewDataBase\TestImport.csv";
+                            //filePath = @"\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv";
 
-                            filePath = @"\USCTRD01.universalalloy.com\RDServer\RD\Database\Export\ForNewDataBase\TestImport.csv";
-
-                           // filePath = @"\\USCTRD01.universalalloy.com\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv";
-
-                            //if (filePath == "none")                                
-                            //filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Compression.csv";
+                            //if (filePath == "none")
+                            //    filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Compression.csv";
                             isSuccess = ImportCompressionData(filePath);
                             break;
                         }
