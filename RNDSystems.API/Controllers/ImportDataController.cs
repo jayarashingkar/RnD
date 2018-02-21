@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using RNDSystems.Models.TestViewModels;
 using Microsoft.VisualBasic.FileIO;
 using System.IO;
+using System.Text;
 
 namespace RNDSystems.API.Controllers
 {
@@ -99,6 +100,7 @@ namespace RNDSystems.API.Controllers
             string data = string.Empty;
             string TestType = selectedTestType.Message;
             string filePath = selectedTestType.Message1;
+            
             try
             {
                 switch (TestType)
@@ -106,24 +108,36 @@ namespace RNDSystems.API.Controllers
                     case "Tension":
                         {
                             //implemented
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Modulus Tension.csv";
                             isSuccess = ImportTensionData(filePath);
                             break;
                         }
                     case "Compression":
                         {
-                            //implemented
+                            // filePath = "/USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv";
+
+                            filePath = @"\USCTRD01.universalalloy.com\RDServer\RD\Database\Export\ForNewDataBase\TestImport.csv";
+
+                           // filePath = @"\\USCTRD01.universalalloy.com\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv";
+
+                            //if (filePath == "none")                                
+                            //filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Compression.csv";
                             isSuccess = ImportCompressionData(filePath);
                             break;
                         }
                     case "Bearing":
                         {
-                            //implemented
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Bearing.csv";
                             isSuccess = ImportBearingData(filePath);
                             break;
                         }
                     case "Shear":
                         {
-                            //implemented
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Shear.csv";
+                            
                             isSuccess = ImportShearData(filePath);
                             break;
                         }
@@ -141,24 +155,34 @@ namespace RNDSystems.API.Controllers
                         }
                     case "Fracture Toughness":
                         {
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Fracture Toughness.csv";
+
                             //implemented
                             isSuccess = ImportFractureToughnessData(filePath);
                             break;
                         }
                     case "Modulus Tension":
                         {
-                            //implemented
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Fracture Toughness.csv";
+
                             isSuccess = ImportModulusTensionData(filePath);
                             break;
                         }
                     case "Modulus Compression":
                         {
-                            //implemented
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Modulus Compression.csv";
+
                             isSuccess = ImportModulusCompressionData(filePath);
                             break;
                         }
                     case "Fatigue Testing":
                         {
+                            if (filePath == "none")
+                                filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Fatigue Testing.csv";
+                            
                             isSuccess = ImportFatigueTestingData(filePath);
                             break;
                         }
@@ -272,7 +296,11 @@ namespace RNDSystems.API.Controllers
             {
                 listCompressionData = new List<CompressionViewModel>();
                 // CompressionData 
-               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Compression.csv";
+                // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Compression.csv";
+                //"\\USCTRD01.universalalloy.com\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv"
+
+                string fileValue = File.ReadAllText(filePath);
+
 
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {

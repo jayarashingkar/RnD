@@ -173,7 +173,7 @@ function customColumnRenderer(helpers, callback) {
 }
 
 $('#btnSelectPrint').on('click', function () {
-    debugger;
+    //debugger;
     if (SelectedTests == null)
         SelectedTests = "";
     $("#SelectedTests").val(SelectedTests);
