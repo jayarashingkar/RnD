@@ -14,6 +14,7 @@
     $('#ddlTestType').change(function () {
          selectedTestType = $.trim($("#ddTestTypes").val());
     });
+
     $("#btnImportDefault").click(function () {
 
       //  $("#filePath").click();
@@ -57,38 +58,89 @@
         });
     });
     
-    $("#uploadTrigger").click(function() {
+    //$("#uploadTrigger").click(function() {
  
-        debugger;
+    //    debugger;
 
-        $("#filePath").click();
+    //    $("#filePath").click();
 
-        selectedTestType = $.trim($("#ddTestTypes").val());      
+    //    selectedTestType = $.trim($("#ddTestTypes").val());      
      
+    //    var filePath = "";
+    //    if ($("#filePath").val()!= null){
+    //        filePath = $.trim($("#filePath").val());
+    //       // filePath = GetRootDirectory() + '\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv';
+    //    }
+
+    //    $('#lblFileName').text("Importing file: " +filePath);
+    //    var errorMsg; 
+    //    if (!filePath.includes(selectedTestType)) {
+    //        errorMsg = "Import Error: Please check the correct file is imported";
+    //    }              
+
+    //    var options ={
+    //        Message: selectedTestType,
+    //        Message1: filePath
+    //        };
+
+    //    $.ajax({
+    //    type: 'post',
+    //    url: Api + 'api/ImportData',
+    //    headers: {
+    //        Token: GetToken()
+    //        },
+    //    data: options
+    //    })
+    //    .done(function (data) {
+    //        if (data) {
+    //            $('#lblImported').text("Imported: " + selectedTestType + "data");
+    //        }
+    //        else {
+    //            errorMsg = "Import Error: Please check if the file is open";
+    //            $('#lblImported').text(errorMsg);
+    //    }
+    //});
+    //});
+
+
+    $("#Choose").click(function () {      
+        $("#filePath1").click();
+         $("#filePathChoose").val($("#filePath1").val());
+      
+    });
+
+    $("#Reset").click(function () {       
+        $("#filePathChoose").val("");
+    });
+
+    $("#Import").click(function () {
+
+       selectedTestType = $.trim($("#ddTestTypes").val());
+
         var filePath = "";
-        if ($("#filePath").val()!= null){
-            filePath = $.trim($("#filePath").val());
-           // filePath = GetRootDirectory() + '\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv';
+        if ($("#filePath1").val() != null) {
+            filePath = $.trim($("#filePath1").val());
+            // filePath = GetRootDirectory() + '\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv';
         }
 
-        $('#lblFileName').text("Importing file: " +filePath);
-        var errorMsg; 
+        $('#lblFileName').text("Importing file: " + filePath);
+        var errorMsg;
         if (!filePath.includes(selectedTestType)) {
             errorMsg = "Import Error: Please check the correct file is imported";
-        }              
+        }
 
-        var options ={
+        var options = {
             Message: selectedTestType,
             Message1: filePath
-            };
+        };
 
         $.ajax({
-        type: 'post',
-        url: Api + 'api/ImportData',
-        headers: {
-            Token: GetToken()
+            type: 'post',
+            url: Api + 'api/ImportData',
+            headers: {
+                Token: GetToken()
             },
-        data: options
+            data: options
         })
         .done(function (data) {
             if (data) {
@@ -97,8 +149,10 @@
             else {
                 errorMsg = "Import Error: Please check if the file is open";
                 $('#lblImported').text(errorMsg);
-        }
-
+            }
+        });
     });
- });
+
+
+
 });
