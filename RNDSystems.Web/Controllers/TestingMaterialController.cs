@@ -19,13 +19,6 @@ namespace RNDSystems.Web.Controllers
             List<SelectListItem> ddlTestType = null;
             List<SelectListItem> ddlLotID = null;
 
-            //  List<SelectListItem> ddlSubTestType = null;
-            //  List<SelectListItem> ddAvailableTestType = null;
-
-            //List<SelectListItem> TestLabs = null;
-            //List<SelectListItem> Orientations = null;
-            //List<SelectListItem> Location1s = null;  
-
             RNDTesting testing = null;
             try
             {
@@ -38,17 +31,9 @@ namespace RNDSystems.Web.Controllers
                         RNDTesting rndTesting = JsonConvert.DeserializeObject<RNDTesting>(res.Result.Content.ReadAsStringAsync().Result);
                         if (rndTesting != null)
                         {
-                            //in workStudyController 
-
                             ddlTestType = rndTesting.ddTestType;
                             ddlLotID = rndTesting.ddLotID;
 
-
-                            // ddlSubTestType = rndTesting.ddSubTestType;
-                            //  ddAvailableTestType = rndTesting.ddAvailableTestType;
-                            // TestLabs = rndTesting.TestLabs;
-                            // Orientations = rndTesting.Orientations;
-                            //Location1s = rndTesting.Location1s;
                         }
                     }
                 });
@@ -62,13 +47,6 @@ namespace RNDSystems.Web.Controllers
 
                 ViewBag.ddlLotID = ddlLotID;
 
-                // testing.GageThickness = "LotID";
-                // 
-                //ViewBag.ddlSubTestType = ddlSubTestType;
-                //  ViewBag.ddAvailableTestType = ddAvailableTestType;
-                // ViewBag.ddTestLabs = TestLabs;
-
-                //ViewBag.ddLocation1s = Location1s;
             }
             catch (Exception ex)
             {
@@ -135,13 +113,9 @@ namespace RNDSystems.Web.Controllers
         //    return View(testing);
         //}
 
-        // public ActionResult SaveTestingMaterial(int id, string workStudyId)
         public ActionResult SaveTestingMaterial(int id, string workStudyId, List<string> avialableTT)
         {
             RNDTesting testing = null;
-
-            //chnage this ddlTestType to ddlAvailableTestType
-            //   List<SelectListItem> ddlAvailableTestType = null;
 
             List<SelectListItem> ddlLotID = null;
             List<SelectListItem> ddlOrientation = null;
@@ -160,9 +134,7 @@ namespace RNDSystems.Web.Controllers
             string[] strLocOne = { " ", "Front", "Middle", "Back", "Low Con" };
             string[] strTesLab = { "Canton", "Anaheim", "WMTR", "ATS" };
 
-            //List<SelectListItem> ddlSubTestType = null;
             List<SelectListItem> ddlAvailableTestType = null;
-            //List<SelectListItem> ddlMaterialTestType = null;
 
             try
             {
@@ -189,9 +161,6 @@ namespace RNDSystems.Web.Controllers
                                 ddlHole = testing.ddHole;
                                 ddlPieceNo = testing.ddPieceNo;
 
-                                //ddlSubTestType = testing.ddSubTestType;
-                                //ddlAvailableTestType = testing.ddAvailableTestType;
-                                //ddlMaterialTestType = testing.ddMaterialTestType;    
                             }
                         }
                     });
@@ -211,11 +180,7 @@ namespace RNDSystems.Web.Controllers
                                     testing.WorkStudyID = workStudyId;
 
                                 }
-                                // ddlAvailableTestType = testing.ddTestType;
                                 ddlLotID = testing.ddLotID;
-                                //ddlSubTestType = testing.ddSubTestType;
-                                //ddlAvailableTestType = testing.ddAvailableTestType;
-                                //ddlMaterialTestType = testing.ddMaterialTestType;    
                             }
                         }
                     });
@@ -309,7 +274,6 @@ namespace RNDSystems.Web.Controllers
                 }
                 //ends here
 
-                // for (int i = 0; i < strOrient.Length; i++)
                 if (workStudyId != null)
                 {
                     //new record 
@@ -339,24 +303,9 @@ namespace RNDSystems.Web.Controllers
                         Selected = (Convert.ToString(testing.SubTestType) == Convert.ToString("Select Test Type")) ? true : false,
                     });
                 }
-
-
-                //ddlAvailableTestType.Add(new SelectListItem
-                //{
-                //    Value = "Select Test Type",
-                //    Text = "Select Test Type",
-                //    Selected = (Convert.ToString(testing.TestType) == Convert.ToString("Select Test Type")) ? true : false,
-                //});
-
-                //  ViewBag.ddlAvailableTestType = ddlAvailableTestType;
-
-                //start here 
-
-                //    List<SelectListItem> ddlAvailableTestType = null;
-
+                
                 ddlAvailableTestType = new List<SelectListItem>();
 
-                //if (avialableTT.Count != 0)
                 if ((avialableTT != null) && (avialableTT.Count > 0))
                 {
                     //  List<string> selectedTT = SeperateValues(avialableTT[0]);                  
@@ -428,8 +377,6 @@ namespace RNDSystems.Web.Controllers
                 ViewBag.ddlPieceNo = ddlPieceNo;
                 ViewBag.ddlLocation2 = ddlLocation2;
                 ViewBag.ddlSubTestType = ddlSubTestType;
-                //ViewBag.ddlMaterialTestType = ddlMaterialTestType;
-                // testing.GageThickness = "LotID";
             }
             catch (Exception ex)
             {
@@ -458,7 +405,6 @@ namespace RNDSystems.Web.Controllers
             return RedirectToAction("TestingMaterialList", new { RecID = model.TestingNo, workStudyID = model.WorkStudyID });
         }
 
-        //  public ActionResult TestingMaterial(string avialableTT)
         public ActionResult TestingMaterial(List<string> avialableTT)
         {
             List<SelectListItem> ddlAvailableTestType = null;
@@ -483,7 +429,6 @@ namespace RNDSystems.Web.Controllers
                         }
                         intRowId += 1;
                     }
-                    // ViewBag.ddlAvailableTT = avialableTT;
                     isSuccess = true;
                 }
                 else
@@ -510,14 +455,7 @@ namespace RNDSystems.Web.Controllers
         public ActionResult PrintSelected(string SelectedTests, string WorkStudyID)
         {
             _logger.Debug("PrintSelected");
-            //DataGridoption ExportDataFilter = new DataGridoption();
-
-            // ExportDataFilter.searchBy = TestingNos;
-            //  ExportDataFilter.Screen = "PrintTest";
-
-            // List<RNDTesting> lstExportTesting = new List<RNDTesting>();
-            //DataSearch<RNDTesting> objTest = null;
-
+ 
             List<TestingViewModel> lstExportTesting = new List<TestingViewModel>();
             DataSearch<TestingViewModel> objTest = null;
 
@@ -526,12 +464,10 @@ namespace RNDSystems.Web.Controllers
             {
                 var client = GetHttpClient();
 
-                // var task = client.PostAsJsonAsync(Api + "api/Testing", SelectedTests).ContinueWith((res) =>
                 var task = client.GetAsync(Api + "api/Testing?SelectedTests=" + SelectedTests + "&workStudyID=" + WorkStudyID).ContinueWith((res) =>
                 {
                     if (res.Result.IsSuccessStatusCode)
                     {
-                        //  objTest = JsonConvert.DeserializeObject<DataSearch<RNDTesting>>(res.Result.Content.ReadAsStringAsync().Result);
                         objTest = JsonConvert.DeserializeObject<DataSearch<TestingViewModel>>(res.Result.Content.ReadAsStringAsync().Result);
                         if (objTest != null && objTest.items != null && objTest.items.Count > 0)
                         {
@@ -540,7 +476,6 @@ namespace RNDSystems.Web.Controllers
                             {
                                 //set filename
                                 string fileName = "PrintNew" + "_" + DateTime.Now.ToString().Replace(" ", "").Replace("-", "").Replace(":", "");
-                                // GetExcelFile<RNDTesting>(lstExportTesting, fileName);
                                 GetExcelFile<TestingViewModel>(lstExportTesting, fileName);
                                 isSuccess = true;
                             }

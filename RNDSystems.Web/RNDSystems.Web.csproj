@@ -281,6 +281,7 @@
     <Content Include="Views\Register\Index_1.cshtml" />
     <Content Include="Views\RnDReports\Reports.cshtml" />
     <Content Include="Views\ImportData\ImportData.cshtml" />
+    <None Include="Properties\PublishProfiles\RNDWeb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

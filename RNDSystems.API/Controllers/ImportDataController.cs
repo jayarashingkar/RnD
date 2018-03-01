@@ -125,7 +125,6 @@ namespace RNDSystems.API.Controllers
                             //if (custom == "custom")
                             //    filePath = filePath + "\\TestImport.csv";
 
-                            //filePath = filePath + "\\RD\\Database\\Export\\ForNewDataBase\\Compression.csv";
                             //  filePath = "S:\\TestImport.csv";
                             // filePath = "\\USCTRD01\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\Compression.csv";
                             isSuccess = ImportCompressionData(filePath);
@@ -218,9 +217,7 @@ namespace RNDSystems.API.Controllers
             {
                 listTensionData = new List<TensionViewModel>();
                 //tensionData 
-                //    string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Tension.csv";
-                //C:\New Development\RND\New Development\CSV\Tension.csv
-
+                
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -283,13 +280,7 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-               
-               
-
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
-                
-
-
+                              
                 return true;
             }
             catch(Exception ex)
@@ -307,9 +298,7 @@ namespace RNDSystems.API.Controllers
             {
                 listCompressionData = new List<CompressionViewModel>();
                 // CompressionData 
-                // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Compression.csv";
-                //"\\USCTRD01.universalalloy.com\\RDServer\\RD\\Database\\Export\\ForNewDataBase\\TestImport.csv"
-
+               
                 string fileValue = File.ReadAllText(filePath);
 
 
@@ -371,7 +360,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -391,8 +379,6 @@ namespace RNDSystems.API.Controllers
                 listBearingData = new List<BearingViewModel>();
                 // Bearing Data 
          
-               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Bearing.csv";
-
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -453,7 +439,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -471,9 +456,7 @@ namespace RNDSystems.API.Controllers
             {
                 listShearData = new List<ShearViewModel>();
                 // Shear Data 
-
-               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Shear.csv";
-
+                
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -548,8 +531,6 @@ namespace RNDSystems.API.Controllers
             {
                 listNotchYieldData = new List<NotchYieldViewModel>();
                 // FractureToughness
-               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Notch Yield.csv";
-
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -613,7 +594,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -635,8 +615,7 @@ namespace RNDSystems.API.Controllers
             {
                 listResidualStrengthData = new List<ResidualStrengthViewModel>();
                 // ResidualStrength
-               // string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Residual Strength.csv";
-
+               
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -707,7 +686,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -729,8 +707,7 @@ namespace RNDSystems.API.Controllers
             {
                 listFractureToughnessData = new List<FractureToughnessViewModel>();
                 // FractureToughness
-           //     string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fracture Toughness.csv";
-
+           
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -813,7 +790,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -832,8 +808,7 @@ namespace RNDSystems.API.Controllers
             {
                 listModulusTensionData = new List<ModulusTensionDataViewModel>();
                 // ModulusTensionData
-           //     string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Modulus Tension.csv";
-
+           
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -893,7 +868,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)
@@ -995,8 +969,7 @@ namespace RNDSystems.API.Controllers
             {
                 listFatigueTestingData = new List<FatigueTestingDataViewModel>();
                 // FatigueTestingData
-             //   string filePath = "C:\\New Development\\RND\\New Development\\CSV\\Fatigue Testing.csv";
-
+           
                 var textFieldParser = new TextFieldParser(new StringReader(File.ReadAllText(filePath)))
                 {
                     Delimiters = new string[] { "," }
@@ -1014,7 +987,6 @@ namespace RNDSystems.API.Controllers
 
                         listFatigueTestingData.Add(new FatigueTestingDataViewModel()
                         {
-                            // RecID = Convert.ToInt32(entry[0]),
                             WorkStudyID = Convert.ToString(entry[0]),
                             TestNo = Convert.ToInt32(entry[1]),
                             SpecimenDrawing = Convert.ToString(entry[2]),
@@ -1086,7 +1058,6 @@ namespace RNDSystems.API.Controllers
                     }
                     introw++;
                 }
-                //SqlParameter param1 = new SqlParameter("@RecID", tension.RecID);
                 return true;
             }
             catch (Exception ex)

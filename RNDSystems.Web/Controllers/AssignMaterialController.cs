@@ -57,45 +57,7 @@ namespace RNDSystems.Web.Controllers
             }
             return View(material);
         }
-
-
-        //public ActionResult SaveAssignMaterial(int id)
-        //{
-        //    RNDWorkStudy workStudy = null;
-        //    List<SelectListItem> studyTypes = null;
-        //    List<SelectListItem> locations = null;
-        //    List<SelectListItem> status = null;
-        //    try
-        //    {
-        //        var client = GetHttpClient();
-        //        var task = client.GetAsync(Api + "api/workstudy?recID=" + id).ContinueWith((res) =>
-        //        {
-        //            if (res.Result.IsSuccessStatusCode)
-        //            {
-        //                workStudy = JsonConvert.DeserializeObject<RNDWorkStudy>(res.Result.Content.ReadAsStringAsync().Result);
-        //                if (workStudy != null)
-        //                {
-        //                    studyTypes = workStudy.StudyTypes;
-        //                    locations = workStudy.Locations;
-        //                    status = workStudy.Status;
-        //                }
-        //            }
-        //        });
-        //        task.Wait();
-
-        //        // ViewBag.ddStatus = status;
-
-        //        ViewBag.ddStudyTypes = studyTypes;
-        //        ViewBag.ddLocation = locations;
-        //        ViewBag.ddStatus = status;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.Error(ex);
-        //    }
-        //    return View(workStudy);
-        //}
-
+                
         /// <summary>
         /// Retrieve Assign Material List details for Update
         /// </summary>
